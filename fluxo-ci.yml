@@ -1,0 +1,13 @@
+name: Verificação de Contribuição
+on: [push, pull_request]
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar Português
+        run: |
+          ./scripts/validar-formato.sh
+      - name: Testes Básicos
+        run: |
+          pytest codigo-fonte/testes/
